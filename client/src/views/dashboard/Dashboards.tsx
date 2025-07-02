@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { ShortUrlContainer } from "../../containers/ShortUrlContainer";
 import { UrlContainer } from "../../containers/UrlContainer";
 
-type DashboardProperties = {};
+export const Dashboard = () => {
+  const [shortUrl, setShortUrl] = useState();
 
-export const Dashboard = (props: DashboardProperties) => {
   return <>
     <div className="dashboard-view">
       <div className="dashboard-view-title">
@@ -13,8 +14,8 @@ export const Dashboard = (props: DashboardProperties) => {
 
       <p>Enter the URL to shorten</p>
 
-      <UrlContainer />
-      <ShortUrlContainer />
+      <UrlContainer setShortUrlFn={setShortUrl} />
+      <ShortUrlContainer shortUrl={shortUrl} />
     </div>
   </>;
 };
