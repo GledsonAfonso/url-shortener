@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { ConfigurationModule } from 'src/configuration/configuration.module';
 import { UrlModule } from 'src/url/url.module';
-import { UtilService } from './util/util.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    ConfigurationModule,
     UrlModule,
   ],
   controllers: [],
-  providers: [UtilService],
+  providers: [],
 })
 export class AppModule {}
