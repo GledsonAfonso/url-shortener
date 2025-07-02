@@ -1,4 +1,4 @@
-# url-shortener
+# url-shortener (server)
 
 > A URL shortener (server-side)
 
@@ -29,7 +29,13 @@ docker compose up -d
 * After the DB is initiated, you will need to run it's migrations to create the necessary tables. For that, run:
 
 ```bash
-pnpm run db-migrate
+pnpm db:migrate
+```
+
+* If for whatever reason you need to reset the DB, you can use:
+
+```bash
+pnpm db:reset
 ```
 
 
