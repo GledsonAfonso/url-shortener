@@ -20,17 +20,25 @@ export class UrlRepository {
   }
 
   async findByUrl(url: string): Promise<Url | null> {
-    return this.db.url.findUnique({
+    return this.db.url.findFirst({
       where: {
         originalUrl: url,
-      }
+        active: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
     });
   }
 
   async findByShortUrl(url: string): Promise<Url | null> {
-    return this.db.url.findUnique({
+    return this.db.url.findFirst({
       where: {
         shortUrl: url,
+        active: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
       },
     });
   }

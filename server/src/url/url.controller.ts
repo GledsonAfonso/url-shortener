@@ -1,6 +1,7 @@
 import { Body, Controller, Post, Req } from '@nestjs/common';
 import { ShortUrlRequest, ShortUrlResponse } from 'src/url/url.interface';
 import { UrlService } from 'src/url/url.service';
+import { UrlUtils } from 'src/url/url.utils';
 
 @Controller({
   version: '1',
@@ -19,7 +20,7 @@ export class UrlController {
     const result = await this.service.getShortenedUrl(body.url);
 
     return {
-      newUrl: `${request['protocol']}://${request['host']}/${result}`,
+      newUrl: UrlUtils.getFormattedUrl(request, result),
     }
   }
 }

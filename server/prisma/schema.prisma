@@ -15,8 +15,9 @@ datasource db {
 }
 
 model Url {
-  shortUrl    String   @id
-  originalUrl String   @unique
+  id          Int      @id @default(autoincrement())
+  shortUrl    String
+  originalUrl String
   active      Boolean  @default(true)
   createdAt   DateTime @default(now())
 }
