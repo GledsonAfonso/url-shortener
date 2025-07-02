@@ -1,4 +1,5 @@
-import { IsEmail, IsUrl } from "@nestjs/class-validator";
+import { IsUrl } from "@nestjs/class-validator";
+import type { Url as PrismaUrlModel } from "generated/prisma";
 
 export class ShortUrlRequest {
   @IsUrl()
@@ -9,7 +10,8 @@ export class ShortUrlResponse {
   newUrl: string;
 }
 
-export interface Url {
-  shortUrl: string,
-  url: string,
-}
+export type Url = Pick<
+  PrismaUrlModel,
+  | "shortUrl"
+  | "originalUrl"
+>;

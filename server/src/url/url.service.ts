@@ -44,8 +44,8 @@ export class UrlService {
 
     // if there's a hash in hold, save it in the db
     await this.repository.save({
-      url,
       shortUrl: result,
+      originalUrl: url,
     });
 
     return result;

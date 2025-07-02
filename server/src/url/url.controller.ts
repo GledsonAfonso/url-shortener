@@ -1,5 +1,4 @@
 import { Body, Controller, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
 import { ShortUrlRequest, ShortUrlResponse } from 'src/url/url.interface';
 import { UrlService } from 'src/url/url.service';
 
@@ -14,12 +13,13 @@ export class UrlController {
 
   @Post('short')
   async shortUrl(
-    @Body() request: ShortUrlRequest,
+    @Req() request: Request,
+    @Body() body: ShortUrlRequest,
   ): Promise<ShortUrlResponse> {
-    const newUrl = await this.service.getShortenedUrl(request.url);
+    const result = await this.service.getShortenedUrl(body.url);
 
     return {
-      newUrl,
+      newUrl: `${request['protocol']}://${request['host']}/${result}`,
     }
   }
 }
