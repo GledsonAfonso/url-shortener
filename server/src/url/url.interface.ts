@@ -7,7 +7,7 @@ export class ShortUrlRequest {
 }
 
 export class ShortUrlResponse {
-  newUrl: string;
+  shortUrl: string;
 }
 
 export type Url = Pick<

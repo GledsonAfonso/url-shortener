@@ -20,7 +20,7 @@ export class UrlController {
     const result = await this.service.getShortenedUrl(body.url);
 
     return {
-      newUrl: UrlUtils.getFormattedUrl(request, result),
+      shortUrl: UrlUtils.getFormattedUrl(request, result),
     }
   }
 }
