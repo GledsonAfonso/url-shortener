@@ -13,7 +13,5 @@ export const getShortUrl = async (url: string): Promise<ShortUrlResponse> => {
     }
   );
 
-  console.log(`fetch.json() result: ${JSON.stringify(response.data)}`);
-
   return response.data;
 };

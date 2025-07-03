@@ -14,10 +14,7 @@ export const UrlContainer = (props: UrlContainerProperties) => {
   };
 
   const onClickButtonHandler = async () => {
-    console.log(`current url: ${url}`);
-
     const data = await getShortUrl(url);
-
     setShortUrlFn(data.shortUrl);
   };
 
