@@ -3,7 +3,7 @@ import { ShortUrlContainer } from "../../containers/ShortUrlContainer";
 import { UrlContainer } from "../../containers/UrlContainer";
 
 export const Dashboard = () => {
-  const [shortUrl, setShortUrl] = useState();
+  const [shortUrl, setShortUrl] = useState('');
 
   return <>
     <div className="dashboard-view">
