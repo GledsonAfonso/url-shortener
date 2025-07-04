@@ -22,8 +22,16 @@ export const UrlShortenerForm = () => {
     setShortUrl('');
   };
 
-  const urlInputValidatorHandler = (): boolean => {
-    return url.length === 0 || /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d{1,5})?(\/[^\s?#]*)?(\?[^\s#]*)?(#[^\s]*)?$/g.test(url);
+  const isInputValid = (): boolean => {
+    return /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d{1,5})?(\/[^\s?#]*)?(\?[^\s#]*)?(#[^\s]*)?$/g.test(url);
+  };
+
+  const isInputEmpty = (): boolean => {
+    return url.length === 0;
+  };
+
+  const isInputValidHandler = (): boolean => {
+    return isInputEmpty() || isInputValid();
   };
 
   const copyButtonHandler = () => {
@@ -46,11 +54,11 @@ export const UrlShortenerForm = () => {
             id="url-form-input"
             label="URL"
             onChange={onChangeInputHandler}
-            isInputValid={urlInputValidatorHandler}
+            isInputValid={isInputValidHandler}
             errorMessage="It must be a valid URL."
           />
 
-          <button id="shorten-button">Shorten</button>
+          <button disabled={isInputEmpty() || !isInputValid()}>Shorten</button>
         </form>
       </div>
 
