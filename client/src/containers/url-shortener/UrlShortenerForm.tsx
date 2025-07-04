@@ -43,7 +43,10 @@ export const UrlShortenerForm = () => {
   return <>
     <div id="url-shortener-container">
       <div>
-        <h1>URL Shortener</h1>
+        <h1>
+          URL Shortener
+          <img id="link-icon" className="icon" src="/link-icon.svg" alt="copy" />
+        </h1>
       </div>
 
       <div>
@@ -65,8 +68,14 @@ export const UrlShortenerForm = () => {
       {shortUrl ?
         <div>
           <p>Success! Here's your short URL:</p>
-          <p>{shortUrl}</p>
-          <button onClick={copyButtonHandler}>Copy</button>
+          <div id="shortened-url-wrapper">
+            <p>
+              {shortUrl}
+              <a onClick={copyButtonHandler}>
+                <img id="copy-icon" className="icon" src="/copy-icon.svg" alt="copy" />
+              </a>
+            </p>
+          </div>
         </div>
         : <></>
       }

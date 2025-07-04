@@ -9,3 +9,27 @@ button:disabled {
   background-color: #cccccc;
   color: #666666;
 }
+
+#shortened-url-wrapper {
+  display: inline;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin: 6px;
+}
+
+#copy-icon:hover {
+  opacity:0.8 !important;
+  background-color: #e2dfdf;
+}
+
+#copy-icon:active {
+  opacity:0.6 !important;
+}
+
+#link-icon {
+  filter: invert(9%) sepia(79%) saturate(5889%) hue-rotate(295deg) brightness(57%) contrast(103%);
+}
