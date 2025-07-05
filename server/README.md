@@ -3,14 +3,6 @@
 > A URL shortener (server-side)
 
 
-## Prerequisites
-
-- Node.js 22.14.0
-- Docker 28.1.1 (build 4eba377)
-- Docker Compose 2.35.1
-- pnpm 10.7.0
-
-
 ## General setup
 
 * First, copy the `.env.example` contents into a new `.env` file at the root of the project. Update the values if needed
