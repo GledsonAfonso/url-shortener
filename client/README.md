@@ -20,5 +20,5 @@ pnpm install
 To run the project execute:
 
 ```bash
-pnpm start:dev
+pnpm start
 ```
