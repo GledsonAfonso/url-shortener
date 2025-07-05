@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   db:
+    container_name: url-shortener-db
     image: postgres:latest
     restart: always
     ports:
@@ -10,3 +11,30 @@ services:
       POSTGRES_DB: url_shortener
       POSTGRES_USER: johndoe
       POSTGRES_PASSWORD: password
+    networks:
+      - url-shortener-network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  server:
+    container_name: url-shortener-server
+    build:
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    env_file: ".env"
+    networks:
+      - url-shortener-network
+    depends_on:
+      db:
+        condition: service_started
+    links:
+      - db
+
+volumes:
+  db-data:
+
+networks:
+  url-shortener-network:
+    driver: bridge

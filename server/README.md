@@ -14,35 +14,56 @@
 ## General setup
 
 * First, copy the `.env.example` contents into a new `.env` file at the root of the project.
-* Install the dependencies with:
+* And then install the dependencies with:
 
 ```bash
 pnpm install
 ```
 
-* Start the DB container with:
+
+## Standalone database setup
+
+If you want to run the database container separately, you will need to:
+
+* Start its container:
 
 ```bash
-docker compose up -d
+docker compose up -d db
 ```
 
-* After the DB is initiated, you will need to run it's migrations to create the necessary tables. For that, run:
+* After the database is initiated, you will need to run it's migrations to create the necessary tables. For that, run:
 
 ```bash
 pnpm db:migrate
 ```
 
-* If for whatever reason you need to reset the DB, you can use:
+* If for whatever reason you need to reset the DB, you can also use:
 
 ```bash
 pnpm db:reset
 ```
 
 
-## Running
+## Running (standalone)
 
-To run the project execute:
+To run the server as a standalon app, execute:
 
 ```bash
 pnpm start
 ```
+
+
+## Running (Docker)
+
+If you wish to run it through Docker, execute:
+
+```bash
+docker compose up -d
+```
+
+This will setup the server together with the database and all its migrations.
+
+
+## Troubleshoot
+
+* If you're having issues with the server container not finding the database container, try to replace the host in the `DATABASE_URL` envvar from your env file to reflect the name of the `database service` (not to be confused with the container name). You can find that in the Docker Compose file.
