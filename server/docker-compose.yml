@@ -1,16 +1,14 @@
-version: '3.1'
-
 services:
   db:
     container_name: url-shortener-db
     image: postgres:latest
     restart: always
     ports:
-      - 5432:5432
+      - ${DATABASE_PORT}:${DATABASE_PORT}
     environment:
-      POSTGRES_DB: url_shortener
-      POSTGRES_USER: johndoe
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     networks:
       - url-shortener-network
     volumes:
@@ -22,8 +20,9 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports:
-      - 3000:3000
-    env_file: ".env"
+      - ${APPLICATION_PORT}:${APPLICATION_PORT}
+    env_file:
+      - .env
     networks:
       - url-shortener-network
     depends_on:
