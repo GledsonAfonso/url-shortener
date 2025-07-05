@@ -20,7 +20,7 @@
 pnpm install
 ```
 
-* Start the DB container and the server application in the server-side
+* Start the DB container and the server application in the server-side directory
 
 
 ## Running
