@@ -1,0 +1,7 @@
+include:
+  - path:
+    - ./server/docker-compose.yml
+  - path:
+    - ./client/docker-compose.yml
+    - ./compose.override.yml
+

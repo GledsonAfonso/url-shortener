@@ -1,0 +1,4 @@
+services:
+  client:
+    networks:
+      - url-shortener-network

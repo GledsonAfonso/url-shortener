@@ -19,7 +19,7 @@ Go to the respective module's `README` and follow the instructions detailed in t
 
 ### Docker
 
-* Do the `General setup` for each module separetely first, following their `README` details
+* Do the `General setup` for each module separetely first, following their `README` details (`.env` files need to be present for each in their respective root directories)
 
 * Then run:
 

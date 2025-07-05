@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - ${DATABASE_PORT}:${DATABASE_PORT}
+    env_file:
+      - .env
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USER}

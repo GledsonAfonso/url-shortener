@@ -22,7 +22,7 @@ If you want to run the database container separately, you will need to:
 * Start its container:
 
 ```bash
-docker compose --env-file ./.env up -d db
+docker compose up -d db
 ```
 
 * After the database is initiated, you will need to run it's migrations to create the necessary tables. To do that, run:
@@ -52,7 +52,7 @@ pnpm start
 If you wish to run it through Docker, execute:
 
 ```bash
-docker compose --env-file ./.env up -d
+docker compose up -d
 ```
 
 This will setup the server together with the database and all its migrations.
