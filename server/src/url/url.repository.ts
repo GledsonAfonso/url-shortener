@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from 'src/configuration/database.service';
-import { Url } from 'src/url/url.interface';
+import { Url, UrlInfo } from 'src/url/url.interface';
 
 @Injectable()
 export class UrlRepository {
@@ -8,7 +8,7 @@ export class UrlRepository {
     private db: DatabaseService,
   ) {}
 
-  async save(url: Url): Promise<Url> {
+  async save(url: UrlInfo): Promise<Url> {
     const result = await this.db.url.create({
       data: {
         shortUrl: url.shortUrl,
@@ -40,6 +40,19 @@ export class UrlRepository {
       orderBy: {
         createdAt: 'desc',
       },
+    });
+  }
+
+  async updateVisitCounter(id: number): Promise<void> {
+    await this.db.url.updateMany({
+      where: {
+        id,
+      },
+      data: {
+        visits: {
+          increment: 1,
+        }
+      }
     });
   }
 }

@@ -19,6 +19,8 @@ export class RedirectionController {
     if (!result) {
       throw new NotFoundException();
     }
+
+    await this.urlRepository.updateVisitCounter(result.id);
     
     return response.redirect(result.originalUrl);
   }

@@ -10,7 +10,9 @@ export class ShortUrlResponse {
   shortUrl: string;
 }
 
-export type Url = Pick<
+export type Url = PrismaUrlModel;
+
+export type UrlInfo = Pick<
   PrismaUrlModel,
   | "shortUrl"
   | "originalUrl"

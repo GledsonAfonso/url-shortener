@@ -19,6 +19,7 @@ model Url {
   id          Int      @id @default(autoincrement())
   shortUrl    String
   originalUrl String
+  visits      Int      @default(0)
   active      Boolean  @default(true)
   createdAt   DateTime @default(now())
 }
