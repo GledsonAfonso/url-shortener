@@ -26,3 +26,5 @@ Go to the respective module's `README` and follow the instructions detailed in t
 ```bash
 docker compose up -d
 ```
+
+* After that you can access the application's UI through `http://localhost:5173/`
